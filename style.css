@@ -1,0 +1,1400 @@
+/* =========================
+   ESTILO GLOBAL DA PÁGINA
+   ========================= */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  font-family: "Kalam", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+  color: #3f2d2d;
+  background: radial-gradient(circle at top left, #fdf3e3 0, #f5e7d4 40%, #f0e0c8 100%);
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+}
+
+.motivos-page {
+  /* Fundo um pouco mais escuro para a página de motivos (versão anterior) */
+  background: radial-gradient(circle at top left, #f3e0d0 0, #e4c9b0 38%, #d2b399 100%);
+}
+
+.pedido-page {
+  background: radial-gradient(circle at top left, #fdf3e3 0, #f1d9ec 35%, #e0c4ff 80%);
+}
+
+.final-page {
+  background: radial-gradient(circle at top left, #fdf3e3 0, #f3d2e8 35%, #e4c9ff 80%);
+}
+
+.page-wrapper {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2.5rem 1.5rem;
+  overflow: hidden;
+}
+
+.page-wrapper.expanded {
+  align-items: flex-start;
+  justify-content: center;
+  padding-top: 2.5rem;
+  padding-bottom: 3rem;
+}
+
+/* =======================================
+   BRILHINHOS DOURADOS DISCRETOS NO FUNDO
+   ======================================= */
+
+.sparkle-overlay {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    radial-gradient(circle at 10% 20%, rgba(255, 215, 180, 0.35) 0, transparent 40%),
+    radial-gradient(circle at 80% 0%, rgba(255, 230, 190, 0.25) 0, transparent 45%),
+    radial-gradient(circle at 90% 80%, rgba(212, 175, 55, 0.22) 0, transparent 55%);
+  mix-blend-mode: screen;
+  opacity: 0.65;
+  animation: sparkleFloat 18s ease-in-out infinite alternate;
+  z-index: 0;
+}
+
+@keyframes sparkleFloat {
+  0% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(-10px, -10px, 0) scale(1.02);
+  }
+  100% {
+    transform: translate3d(8px, 12px, 0) scale(1);
+  }
+}
+
+/* ==============================
+   SESSÃO 1 – CARTA ROMÂNTICA
+   ============================== */
+
+.hero-letter {
+  position: relative;
+  width: 100%;
+  max-width: 960px;
+  z-index: 1;
+}
+
+.page-wrapper.expanded .hero-letter {
+  margin-bottom: 2.8rem;
+}
+
+.letter-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.letter-card {
+  position: relative;
+  width: 100%;
+  max-width: 720px;
+  padding: 2.75rem 2.25rem 2.5rem;
+  border-radius: 18px;
+
+  /* Papel vintage, sem pautas, mais “queimado” nas bordas */
+  background: radial-gradient(circle at 20% 0, #fff5df 0, #f4dfbd 42%, #e2c099 100%);
+  box-shadow:
+    0 26px 55px rgba(48, 30, 18, 0.55),
+    0 0 0 1px rgba(103, 72, 46, 0.6);
+
+  border: 1px solid rgba(82, 53, 32, 0.9);
+
+  /* Deixa pronto para ver um pouco de “rasgo”/queimado nas bordas */
+  overflow: hidden;
+}
+
+/* Textura sutil + bordas queimadas */
+.letter-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: 
+    radial-gradient(circle at 0 0, rgba(65, 38, 20, 0.55), transparent 55%),
+    radial-gradient(circle at 100% 0, rgba(65, 38, 20, 0.48), transparent 55%),
+    radial-gradient(circle at 0 100%, rgba(65, 38, 20, 0.5), transparent 55%),
+    radial-gradient(circle at 100% 100%, rgba(65, 38, 20, 0.55), transparent 55%),
+    repeating-linear-gradient(
+      -45deg,
+      rgba(120, 90, 60, 0.12),
+      rgba(120, 90, 60, 0.12) 1px,
+      transparent 1px,
+      transparent 4px
+    );
+  mix-blend-mode: multiply;
+  opacity: 0.85;
+  pointer-events: none;
+}
+
+/* Detalhe discreto com roxo como cor principal escondida */
+.letter-card::after {
+  content: "";
+  position: absolute;
+  inset: 3px;
+  border-radius: 14px;
+  border: 1px dashed rgba(96, 70, 125, 0.28); /* roxo bem discreto */
+  pointer-events: none;
+}
+
+/* Pequena animação de inclinação controlada pelo mouse */
+.letter-card.tilted {
+  transition: transform 0.12s ease-out;
+  transform-style: preserve-3d;
+}
+
+/* ==============================
+   TÍTULO – FONTE MANUSCRITA
+   ============================== */
+
+.letter-title {
+  position: relative;
+  font-family: "Great Vibes", cursive;
+  font-size: clamp(2.1rem, 3vw, 2.7rem);
+  color: #4a2c3a;
+  margin-bottom: 1.75rem;
+  text-align: center;
+  letter-spacing: 0.03em;
+}
+
+/* Linha “assinatura” abaixo do título */
+.letter-title::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -0.75rem;
+  width: 120px;
+  height: 2px;
+  transform: translateX(-50%);
+  background: linear-gradient(
+    90deg,
+    rgba(90, 63, 121, 0.0),
+    rgba(90, 63, 121, 0.55),
+    rgba(212, 175, 55, 0.65),
+    rgba(90, 63, 121, 0.0)
+  );
+}
+
+/* Aplica estilo de "digitando" (texto é controlado pelo JS) */
+.letter-title.typing {
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 2px solid rgba(90, 63, 121, 0.6); /* roxo discreto */
+  animation: caretBlink 0.9s steps(1) infinite;
+}
+
+.letter-title.typing-done {
+  border-right: none;
+  animation: none;
+}
+
+@keyframes caretBlink {
+  0%,
+  49% {
+    border-color: rgba(90, 63, 121, 0.65);
+  }
+  50%,
+  100% {
+    border-color: transparent;
+  }
+}
+
+/* ===========================
+   CORPO DA CARTA
+   =========================== */
+
+.letter-body {
+  position: relative;
+  margin-top: 2.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  line-height: 1.7;
+  font-size: 0.98rem;
+  color: #3f2d2d;
+}
+
+.letter-body p {
+  text-align: justify;
+}
+
+/* Palavras com corações “pop” no hover */
+.heart-word {
+  position: relative;
+  font-weight: 500;
+  color: #5a3f79; /* roxo discreto */
+  cursor: default;
+  transition: color 0.25s ease, transform 0.25s ease;
+}
+
+.heart-word::after {
+  content: "♥";
+  position: absolute;
+  top: -0.9em;
+  right: -0.2em;
+  font-size: 1.5em;
+  color: #7a5ca5; /* roxo mais visível */
+  opacity: 0;
+  transform: scale(0.5) translateY(6px);
+  transform-origin: center;
+  pointer-events: none;
+}
+
+.heart-word:hover {
+  color: #7a5ca5;
+  transform: translateY(-1px);
+}
+
+.heart-word:hover::after {
+  opacity: 1;
+  animation: heartPop 0.5s cubic-bezier(0.25, 0.9, 0.4, 1.4);
+}
+
+@keyframes heartPop {
+  0% {
+    opacity: 0;
+    transform: scale(0.5) translateY(6px);
+  }
+  45% {
+    opacity: 1;
+    transform: scale(1.35) translateY(-2px);
+  }
+  70% {
+    transform: scale(1.05) translateY(0);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1.1) translateY(0);
+  }
+}
+
+/* ===========================
+   BOTÃO – LIQUID GLASS
+   =========================== */
+
+.letter-actions {
+  margin-top: 2.4rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.glass-button {
+  position: relative;
+  padding: 0.85rem 1.8rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  font-size: 0.95rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  color: #3b274a;
+
+  /* Efeito liquid glass sutil */
+  background: linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.68),
+      rgba(240, 225, 255, 0.35)
+    ),
+    radial-gradient(circle at 0 0, rgba(95, 71, 132, 0.28), transparent 55%);
+  box-shadow:
+    0 14px 32px rgba(61, 36, 84, 0.22),
+    0 0 0 1px rgba(255, 255, 255, 0.6),
+    inset 0 0 0 1px rgba(90, 63, 121, 0.23);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+
+  transform: translateY(0);
+  transition:
+    transform 0.18s ease,
+    box-shadow 0.18s ease,
+    background 0.18s ease;
+}
+
+.glass-button::before {
+  content: "";
+  position: absolute;
+  inset: 2px;
+  border-radius: inherit;
+  background: radial-gradient(
+    circle at 20% 0,
+    rgba(255, 255, 255, 0.95),
+    transparent 55%
+  );
+  opacity: 0.9;
+  mix-blend-mode: screen;
+  pointer-events: none;
+}
+
+.glass-button:hover {
+  transform: translateY(-2px) scale(1.01);
+  box-shadow:
+    0 18px 40px rgba(61, 36, 84, 0.28),
+    0 0 0 1px rgba(255, 255, 255, 0.9),
+    inset 0 0 0 1px rgba(90, 63, 121, 0.26);
+}
+
+.glass-button:active {
+  transform: translateY(1px) scale(0.99);
+  box-shadow:
+    0 10px 22px rgba(61, 36, 84, 0.26),
+    0 0 0 1px rgba(255, 255, 255, 0.9),
+    inset 0 0 0 1px rgba(90, 63, 121, 0.3);
+}
+
+/* Pequeno "pulinho" suave ocasional (mais chamativo mas ainda delicado) */
+.glass-button.pulse {
+  animation: buttonPulse 2.5s ease-in-out infinite;
+}
+
+@keyframes buttonPulse {
+  0%,
+  100% {
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    transform: translateY(-2px) scale(1.02);
+  }
+}
+
+.continue-message {
+  margin-top: 0.85rem;
+  font-size: 0.9rem;
+  color: #6a4254;
+  text-align: center;
+  opacity: 0;
+  transform: translateY(4px);
+  transition:
+    opacity 0.35s ease,
+    transform 0.35s ease;
+}
+
+.continue-message.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+/* ===========================
+   RESPONSIVIDADE
+   =========================== */
+
+@media (max-width: 768px) {
+  .page-wrapper {
+    padding: 2.2rem 1.1rem;
+  }
+
+  .letter-card {
+    padding: 2.1rem 1.5rem 2.2rem;
+  }
+
+  .letter-body {
+    font-size: 0.95rem;
+  }
+
+  .letter-title {
+    white-space: normal;
+  }
+
+  .letter-title.typing {
+    white-space: nowrap;
+  }
+}
+
+@media (max-width: 480px) {
+  .letter-card {
+    padding: 1.8rem 1.3rem 2rem;
+  }
+
+  .letter-title {
+    font-size: 1.8rem;
+  }
+
+  .letter-actions {
+    margin-top: 1.8rem;
+  }
+
+  .glass-button {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+/* ==========================================
+   CORAÇÕES VINHO SUBINDO NO FUNDO
+   ========================================== */
+
+.floating-hearts-layer {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.floating-heart {
+  position: absolute;
+  bottom: -10vh;
+  font-size: 1.1rem;
+  color: #6a1f3b; /* vinho */
+  opacity: 0.85;
+  filter: drop-shadow(0 0 4px rgba(0, 0, 0, 0.25));
+  animation: heartFloatUp linear forwards;
+}
+
+.motivos-page .floating-heart {
+  color: #ffffff; /* brancos na página de motivos */
+}
+
+@keyframes heartFloatUp {
+  0% {
+    transform: translateY(0) scale(0.7);
+    opacity: 0;
+  }
+  15% {
+    opacity: 0.85;
+  }
+  60% {
+    transform: translateY(-60vh) translateX(-10px) scale(1);
+  }
+  100% {
+    transform: translateY(-100vh) translateX(10px) scale(1.1);
+    opacity: 0;
+  }
+}
+
+/* ==========================================
+   ÍCONE FLUTUANTE DE MÚSICA (CORAÇÃO/NOTA)
+   ========================================== */
+
+.music-toggle {
+  position: fixed;
+  right: 1.4rem;
+  bottom: 1.4rem;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  background: radial-gradient(circle at 30% 0, #fff7ec 0, #f4d9c5 45%, #c28cab 100%);
+  box-shadow:
+    0 12px 26px rgba(74, 35, 64, 0.45),
+    0 0 0 1px rgba(255, 255, 255, 0.86);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 20;
+  overflow: hidden;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  transition:
+    transform 0.18s ease,
+    box-shadow 0.18s ease,
+    background 0.18s ease,
+    opacity 0.18s ease;
+}
+
+.music-toggle:hover {
+  transform: translateY(-2px) scale(1.03);
+  box-shadow:
+    0 16px 30px rgba(74, 35, 64, 0.55),
+    0 0 0 1px rgba(255, 255, 255, 0.95);
+}
+
+.music-toggle:active {
+  transform: translateY(1px) scale(0.98);
+}
+
+.music-icon,
+.music-heart {
+  position: absolute;
+  font-size: 1.4rem;
+  pointer-events: none;
+}
+
+.music-icon {
+  color: #fdfdfd;
+  text-shadow: 0 0 6px rgba(0, 0, 0, 0.35);
+  transform: translate(-4px, -2px);
+}
+
+.music-heart {
+  color: #6a1f3b; /* vinho */
+  transform: translate(6px, 4px) scale(0.9);
+  text-shadow: 0 0 4px rgba(0, 0, 0, 0.35);
+}
+
+/* Estado quando a música está tocando */
+.music-toggle.playing {
+  background: radial-gradient(circle at 30% 0, #fff7ec 0, #f4d9c5 35%, #7d3b6a 100%);
+  box-shadow:
+    0 18px 36px rgba(61, 24, 55, 0.65),
+    0 0 0 1px rgba(255, 255, 255, 0.98);
+}
+
+.music-toggle.playing .music-heart {
+  animation: heartBeat 1.1s ease-in-out infinite;
+}
+
+.music-toggle.playing .music-icon {
+  animation: musicWiggle 1.3s ease-in-out infinite;
+}
+
+@keyframes heartBeat {
+  0%,
+  100% {
+    transform: translate(6px, 4px) scale(0.9);
+  }
+  25% {
+    transform: translate(6px, 4px) scale(1.1);
+  }
+  50% {
+    transform: translate(6px, 4px) scale(0.95);
+  }
+}
+
+@keyframes musicWiggle {
+  0%,
+  100% {
+    transform: translate(-4px, -2px) rotate(0deg);
+  }
+  25% {
+    transform: translate(-4px, -2px) rotate(-10deg);
+  }
+  50% {
+    transform: translate(-4px, -2px) rotate(7deg);
+  }
+}
+
+/* ==========================================
+   SESSÃO 2 – 3 MOTIVOS (TIMELINE FOFA)
+   ========================================== */
+
+.reasons-section {
+  position: relative;
+  width: 100%;
+  margin-top: 2.2rem;
+  padding: 2.5rem 0 1.5rem;
+}
+
+.reasons-inner {
+  max-width: 720px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.reasons-header {
+  text-align: center;
+  margin-bottom: 2.2rem;
+}
+
+.reasons-title {
+  font-family: "Great Vibes", cursive;
+  font-size: clamp(2rem, 2.5vw, 2.3rem);
+  color: #4a2c3a;
+  margin-bottom: 0.5rem;
+}
+
+.reasons-subtitle {
+  font-size: 0.95rem;
+  color: #6a4254;
+  max-width: 420px;
+  margin: 0 auto;
+}
+
+.reason-item {
+  position: relative;
+  margin-bottom: 1.2rem;
+  opacity: 0;
+  transform: translateY(16px);
+  transition:
+    opacity 0.5s ease-out,
+    transform 0.5s ease-out;
+}
+
+.reason-item.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reason-dot {
+  display: none;
+}
+
+.reason-card {
+  position: relative;
+  background: rgba(249, 240, 221, 0.95);
+  border-radius: 8px;
+  padding: 1.05rem 1rem 1rem;
+  box-shadow:
+    0 14px 24px rgba(60, 40, 20, 0.35),
+    0 0 0 1px rgba(120, 85, 55, 0.3);
+  border: 1px solid rgba(120, 85, 55, 0.6);
+  overflow: hidden;
+  transform-origin: center top;
+  transition:
+    box-shadow 0.18s ease,
+    transform 0.18s ease;
+}
+
+.reason-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image: radial-gradient(
+    circle at 10% 0,
+    rgba(255, 238, 210, 0.9),
+    transparent 55%
+  );
+  opacity: 0.5;
+}
+
+/* Estrelinhas/brilhos dourados ao entrar na tela */
+.reason-card::after {
+  content: "";
+  position: absolute;
+  inset: -40%;
+  background-image:
+    radial-gradient(circle at 20% 0, rgba(255, 255, 255, 0.9) 0, transparent 55%),
+    radial-gradient(circle at 80% 100%, rgba(212, 175, 55, 0.8) 0, transparent 70%);
+  opacity: 0;
+  transform: translateX(-35%) rotate(8deg);
+  mix-blend-mode: screen;
+  pointer-events: none;
+}
+
+.reason-item.visible .reason-card::after {
+  animation: reasonsSparkle 0.6s ease-out forwards;
+}
+
+@keyframes reasonsSparkle {
+  0% {
+    opacity: 0;
+    transform: translateX(-45%) rotate(8deg);
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(20%) rotate(8deg);
+  }
+}
+
+.reason-heading {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #4a2c3a;
+  margin-bottom: 0.4rem;
+}
+
+.reason-card p {
+  font-size: 0.94rem;
+  color: #4d3732;
+  line-height: 1.6;
+}
+
+/* Layout em grid de post-its */
+.reasons-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 1.4rem;
+  justify-items: center;
+}
+
+.postit {
+  /* Leve transparência para ver corações passando atrás */
+  background: rgba(255, 249, 207, 0.86);
+  box-shadow:
+    0 16px 24px rgba(60, 40, 20, 0.45),
+    0 0 0 1px rgba(180, 150, 90, 0.6);
+  border: 1px solid rgba(180, 150, 90, 0.9);
+}
+
+.postit-1 {
+  transform: rotate(-2deg);
+}
+
+.postit-2 {
+  background: rgba(255, 232, 247, 0.9);
+  transform: rotate(1.5deg);
+}
+
+.postit-3 {
+  background: rgba(234, 246, 255, 0.9);
+  transform: rotate(-1deg);
+}
+
+.postit-4 {
+  background: rgba(255, 242, 223, 0.9);
+  transform: rotate(0.3deg);
+  /* Ocupa toda a largura na linha de baixo */
+  grid-column: 1 / -1;
+  width: 100%;
+  max-width: 100%;
+}
+
+/* Fita adesiva no topo dos post-its */
+.postit::before {
+  content: "";
+  position: absolute;
+  top: -8px;
+  left: 50%;
+  width: 70px;
+  height: 18px;
+  transform: translateX(-50%) rotate(-2deg);
+  background: rgba(255, 255, 255, 0.75);
+  box-shadow: 0 2px 4px rgba(60, 40, 20, 0.25);
+}
+
+/* Micro balanço no hover, como se estivesse pendurado */
+.postit:hover {
+  transform: translateY(-3px) rotate(0deg);
+  box-shadow:
+    0 20px 30px rgba(60, 40, 20, 0.6),
+    0 0 0 1px rgba(120, 85, 55, 0.6);
+}
+
+@media (max-width: 640px) {
+  .reason-card {
+    margin-left: 0;
+  }
+}
+
+/* Botão no post-it extra */
+.postit-button {
+  display: inline-flex;
+  margin-top: 0.7rem;
+  padding: 0.45rem 0.9rem;
+  border-radius: 999px;
+  border: 1px solid rgba(122, 92, 165, 0.7);
+  background: rgba(255, 255, 255, 0.9);
+  color: #4b295b;
+  font-size: 0.8rem;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  text-decoration: none;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  box-shadow:
+    0 6px 14px rgba(61, 36, 84, 0.35),
+    0 0 0 1px rgba(255, 255, 255, 0.8);
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.15s ease,
+    background 0.15s ease;
+}
+
+.postit-button:hover {
+  transform: translateY(-1px);
+  background: #f7f1ff;
+  box-shadow:
+    0 10px 20px rgba(61, 36, 84, 0.45),
+    0 0 0 1px rgba(255, 255, 255, 0.9);
+}
+
+.postit-button:active {
+  transform: translateY(0);
+  box-shadow:
+    0 5px 10px rgba(61, 36, 84, 0.4),
+    0 0 0 1px rgba(255, 255, 255, 0.9);
+}
+
+/* ==========================================
+   PÁGINA DO PEDIDO – BOTÃO QUE FOGE
+   ========================================== */
+
+.pedido-section {
+  width: 100%;
+  margin-top: 2.8rem;
+}
+
+.pedido-inner {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 2.2rem 1.6rem 2.4rem;
+  border-radius: 20px;
+  background: rgba(249, 240, 221, 0.94);
+  box-shadow:
+    0 24px 45px rgba(60, 40, 20, 0.5),
+    0 0 0 1px rgba(120, 85, 55, 0.4);
+  border: 1px solid rgba(120, 85, 55, 0.7);
+  position: relative;
+  overflow: hidden;
+}
+
+.pedido-title {
+  font-family: "Great Vibes", cursive;
+  font-size: clamp(2.1rem, 3vw, 2.7rem);
+  text-align: center;
+  color: #4a2c3a;
+  margin-bottom: 0.9rem;
+}
+
+.pedido-subtitle {
+  text-align: center;
+  font-size: 0.98rem;
+  color: #5c3b4d;
+  max-width: 520px;
+  margin: 0 auto 1.8rem;
+}
+
+.pedido-buttons-wrapper {
+  position: relative;
+  margin: 1.4rem auto 1.2rem;
+  max-width: 460px;
+  min-height: 130px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.2rem;
+  padding: 1.2rem;
+}
+
+.pedido-button {
+  position: relative;
+  min-width: 110px;
+  padding: 0.65rem 1.3rem;
+  border-radius: 999px;
+  border: 1px solid rgba(122, 92, 165, 0.7);
+  background: #ffffff;
+  color: #4b295b;
+  font-size: 0.96rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow:
+    0 10px 20px rgba(61, 36, 84, 0.35),
+    0 0 0 1px rgba(255, 255, 255, 0.9);
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.15s ease,
+    background 0.15s ease;
+}
+
+.pedido-button:hover {
+  transform: translateY(-1px);
+  background: #f7f1ff;
+  box-shadow:
+    0 14px 24px rgba(61, 36, 84, 0.45),
+    0 0 0 1px rgba(255, 255, 255, 0.95);
+}
+
+.pedido-button:active {
+  transform: translateY(0);
+  box-shadow:
+    0 8px 16px rgba(61, 36, 84, 0.4),
+    0 0 0 1px rgba(255, 255, 255, 0.95);
+}
+
+.yes-button {
+  background: linear-gradient(135deg, #fef4ff, #e3d4ff);
+}
+
+.no-button {
+  background: linear-gradient(135deg, #ffe9f2, #ffd2e2);
+}
+
+.pedido-hint {
+  text-align: center;
+  font-size: 0.88rem;
+  color: #6a4254;
+  margin-top: 0.4rem;
+}
+
+/* Para o botão "Sim" poder fugir livremente dentro da área */
+.pedido-page #yes-button {
+  position: absolute;
+}
+
+@media (max-width: 600px) {
+  .pedido-inner {
+    padding: 1.9rem 1.2rem 2.1rem;
+  }
+
+  .pedido-buttons-wrapper {
+    min-height: 150px;
+    flex-direction: column;
+  }
+
+  .pedido-page #yes-button {
+    position: absolute;
+  }
+}
+
+/* ==========================================
+   CONTRATO DE NAMORO – OVERLAY
+   ========================================== */
+
+.contrato-overlay {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.35s ease-out;
+  z-index: 30;
+}
+
+.contrato-overlay.visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.contrato-backdrop {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at top, rgba(0, 0, 0, 0.5), rgba(10, 0, 20, 0.9));
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
+.contrato-card {
+  position: relative;
+  max-width: 640px;
+  margin: 0 1.5rem;
+  padding: 2.2rem 2rem 2.3rem;
+  background: #f9f0dd;
+  border-radius: 18px;
+  box-shadow:
+    0 24px 50px rgba(0, 0, 0, 0.7),
+    0 0 0 1px rgba(120, 85, 55, 0.7);
+  border: 1px solid rgba(120, 85, 55, 0.95);
+  z-index: 1;
+  transform: translateY(18px) scale(0.97);
+  opacity: 0;
+  transition:
+    opacity 0.35s ease-out,
+    transform 0.35s ease-out;
+}
+
+.contrato-overlay.visible .contrato-card {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+.contrato-title {
+  font-family: "Great Vibes", cursive;
+  font-size: clamp(2rem, 2.7vw, 2.4rem);
+  text-align: center;
+  color: #4a2c3a;
+  margin-bottom: 0.8rem;
+}
+
+.contrato-intro {
+  font-size: 0.96rem;
+  color: #4d3732;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.contrato-list {
+  list-style: none;
+  padding-left: 0;
+  margin: 0 0 1.3rem;
+}
+
+.contrato-list li {
+  position: relative;
+  padding-left: 1.5rem;
+  margin-bottom: 0.6rem;
+  font-size: 0.95rem;
+  color: #3f2d2d;
+}
+
+.contrato-list li::before {
+  content: "♥";
+  position: absolute;
+  left: 0;
+  top: 0.1rem;
+  font-size: 0.9rem;
+  color: #7a5ca5;
+}
+
+.contrato-assinatura {
+  text-align: right;
+  font-size: 0.95rem;
+  color: #4d3732;
+  margin-bottom: 1.3rem;
+}
+
+.contrato-assinatura span {
+  font-family: "Great Vibes", cursive;
+  font-size: 1.5rem;
+  display: inline-block;
+  margin-top: 0.25rem;
+}
+
+.contrato-close-button {
+  display: inline-flex;
+  margin-left: auto;
+  padding: 0.55rem 1.2rem;
+  border-radius: 999px;
+  border: 1px solid rgba(122, 92, 165, 0.7);
+  background: #ffffff;
+  color: #4b295b;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow:
+    0 8px 18px rgba(61, 36, 84, 0.4),
+    0 0 0 1px rgba(255, 255, 255, 0.9);
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.15s ease,
+    background 0.15s ease;
+}
+
+.contrato-close-button:hover {
+  transform: translateY(-1px);
+  background: #f7f1ff;
+  box-shadow:
+    0 12px 22px rgba(61, 36, 84, 0.5),
+    0 0 0 1px rgba(255, 255, 255, 0.95);
+}
+
+.contrato-close-button:active {
+  transform: translateY(0);
+  box-shadow:
+    0 6px 14px rgba(61, 36, 84, 0.45),
+    0 0 0 1px rgba(255, 255, 255, 0.95);
+}
+
+@media (max-width: 600px) {
+  .contrato-card {
+    padding: 1.9rem 1.4rem 2rem;
+  }
+}
+
+/* Pétalas de rosa caindo (confete romântico) */
+.rose-petal {
+  position: fixed;
+  top: -40px;
+  width: 14px;
+  height: 18px;
+  border-radius: 50% 50% 50% 0;
+  background: linear-gradient(135deg, #ffbfd4, #ff8fb5);
+  opacity: 0.9;
+  pointer-events: none;
+  z-index: 35;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.2);
+  animation: petalFall 4.5s linear forwards;
+}
+
+@keyframes petalFall {
+  0% {
+    transform: translate3d(0, 0, 0) rotateZ(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.9;
+  }
+  50% {
+    transform: translate3d(-30px, 50vh, 0) rotateZ(80deg);
+  }
+  100% {
+    transform: translate3d(20px, 100vh, 0) rotateZ(140deg);
+    opacity: 0;
+  }
+}
+
+/* Taças de vinho caindo */
+.wine-glass {
+  position: fixed;
+  top: -40px;
+  font-size: 1.4rem;
+  pointer-events: none;
+  z-index: 36;
+  animation: glassFall 5s linear forwards;
+}
+
+@keyframes glassFall {
+  0% {
+    transform: translate3d(0, 0, 0) rotateZ(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  60% {
+    transform: translate3d(-20px, 60vh, 0) rotateZ(-10deg);
+  }
+  100% {
+    transform: translate3d(10px, 105vh, 0) rotateZ(8deg);
+    opacity: 0;
+  }
+}
+
+/* Brilhinhos extras caindo */
+.falling-sparkle {
+  position: fixed;
+  top: -20px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #fff9e6 0, #ffd98a 50%, rgba(255, 217, 138, 0) 75%);
+  pointer-events: none;
+  z-index: 34;
+  opacity: 0.9;
+  animation: sparkleFall 3.5s linear forwards;
+}
+
+@keyframes sparkleFall {
+  0% {
+    transform: translate3d(0, 0, 0) scale(0.6);
+    opacity: 0;
+  }
+  15% {
+    opacity: 1;
+  }
+  70% {
+    transform: translate3d(10px, 70vh, 0) scale(1);
+  }
+  100% {
+    transform: translate3d(-10px, 100vh, 0) scale(0.7);
+    opacity: 0;
+  }
+}
+
+/* Animações para o botão "Não" sacudir e mudar de forma */
+.no-button.shake {
+  animation: noShake 0.4s ease-out;
+}
+
+@keyframes noShake {
+  0% {
+    transform: translateX(0);
+  }
+  20% {
+    transform: translateX(-4px);
+  }
+  40% {
+    transform: translateX(4px);
+  }
+  60% {
+    transform: translateX(-3px);
+  }
+  80% {
+    transform: translateX(3px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+/* ==========================================
+   PÁGINA FINAL – MIX FOFO + ZOEIRA
+   ========================================== */
+
+.final-section {
+  width: 100%;
+  margin-top: 3rem;
+}
+
+.final-inner {
+  max-width: 820px;
+  margin: 0 auto;
+  padding: 2.4rem 1.8rem 2.7rem;
+  border-radius: 22px;
+  background: rgba(249, 240, 221, 0.95);
+  box-shadow:
+    0 24px 50px rgba(60, 40, 20, 0.55),
+    0 0 0 1px rgba(120, 85, 55, 0.4);
+  border: 1px solid rgba(120, 85, 55, 0.7);
+  position: relative;
+  overflow: hidden;
+}
+
+.final-title {
+  font-family: "Great Vibes", cursive;
+  font-size: clamp(2.1rem, 3vw, 2.8rem);
+  text-align: center;
+  color: #4a2c3a;
+  margin-bottom: 0.7rem;
+}
+
+.final-subtitle {
+  text-align: center;
+  font-size: 0.98rem;
+  color: #5c3b4d;
+  max-width: 540px;
+  margin: 0 auto 2rem;
+}
+
+.final-columns {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.4rem;
+  margin-bottom: 1.8rem;
+}
+
+.final-card {
+  background: rgba(255, 255, 255, 0.92);
+  border-radius: 16px;
+  padding: 1.2rem 1.2rem 1.1rem;
+  box-shadow:
+    0 12px 24px rgba(60, 40, 20, 0.3),
+    0 0 0 1px rgba(120, 85, 55, 0.25);
+  border: 1px solid rgba(120, 85, 55, 0.6);
+  position: relative;
+  overflow: hidden;
+}
+
+.final-card-left::before,
+.final-card-right::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image: radial-gradient(
+    circle at 0 0,
+    rgba(255, 255, 255, 0.8),
+    transparent 55%
+  );
+  opacity: 0.6;
+}
+
+.final-card h2 {
+  font-size: 1.1rem;
+  color: #4a2c3a;
+  margin-bottom: 0.7rem;
+}
+
+.final-card ul {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+.final-card li {
+  position: relative;
+  padding-left: 1.3rem;
+  margin-bottom: 0.5rem;
+  font-size: 0.94rem;
+  color: #4d3732;
+}
+
+.final-card-left li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  top: 0.1rem;
+  font-size: 0.9rem;
+  color: #4f8a3a;
+}
+
+.final-card-right li::before {
+  content: "✗";
+  position: absolute;
+  left: 0;
+  top: 0.1rem;
+  font-size: 0.9rem;
+  color: #b03b46;
+}
+
+.final-footer {
+  text-align: center;
+  font-size: 0.94rem;
+  color: #5c3b4d;
+  margin-bottom: 1.4rem;
+}
+
+.final-back-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  padding: 0.6rem 1.4rem;
+  border-radius: 999px;
+  border: 1px solid rgba(122, 92, 165, 0.7);
+  background: #ffffff;
+  color: #4b295b;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-decoration: none;
+  box-shadow:
+    0 10px 20px rgba(61, 36, 84, 0.35),
+    0 0 0 1px rgba(255, 255, 255, 0.9);
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.15s ease,
+    background 0.15s ease;
+}
+
+.final-back-button:hover {
+  transform: translateY(-1px);
+  background: #f7f1ff;
+  box-shadow:
+    0 14px 24px rgba(61, 36, 84, 0.45),
+    0 0 0 1px rgba(255, 255, 255, 0.95);
+}
+
+.final-back-button:active {
+  transform: translateY(0);
+  box-shadow:
+    0 8px 16px rgba(61, 36, 84, 0.4),
+    0 0 0 1px rgba(255, 255, 255, 0.95);
+}
+
+@media (max-width: 600px) {
+  .final-inner {
+    padding: 2.1rem 1.3rem 2.5rem;
+  }
+}
+
+
+
+
+
+/* ==========================================
+   RASTRO BRILHANTE DO MOUSE
+   ========================================== */
+
+.cursor-sparkle {
+  position: fixed;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  pointer-events: none;
+  background: radial-gradient(circle, #fdf4d8 0, #f1d49f 45%, rgba(212, 175, 55, 0) 70%);
+  mix-blend-mode: screen;
+  opacity: 0.9;
+  z-index: 999;
+  animation: cursorSparkleFade 0.55s ease-out forwards;
+}
+
+@keyframes cursorSparkleFade {
+  0% {
+    transform: translate(-50%, -50%) scale(0.4);
+    opacity: 0.9;
+  }
+  40% {
+    transform: translate(-50%, -60%) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-50%, -70%) scale(0.4);
+    opacity: 0;
+  }
+}
+
+
+

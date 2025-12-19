@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Três coisinhas sobre você 💜</title>
+
+    <!-- Fontes compartilhadas -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Kalam:wght@300;400;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body class="motivos-page">
+    <main class="page-wrapper expanded">
+      <!-- Fundo com brilhinhos dourados discretos -->
+      <div class="sparkle-overlay"></div>
+
+      <!-- Corações vinho subindo no fundo -->
+      <div class="floating-hearts-layer" aria-hidden="true"></div>
+
+      <!-- Botão de música (reutiliza mesma lógica do index) -->
+      <button
+        class="music-toggle"
+        id="music-toggle"
+        type="button"
+        aria-label="Tocar ou pausar a música"
+      >
+        <span class="music-icon">♪</span>
+        <span class="music-heart">♥</span>
+      </button>
+
+      <audio id="background-music" loop>
+        <source src="minha-musica.mp4" type="video/mp4" />
+      </audio>
+
+      <audio id="click-sound">
+        <source src="click.mp4" type="video/mp4" />
+      </audio>
+
+      <!-- SESSÃO – 3 MOTIVOS EM POST-ITS -->
+      <section class="reasons-section" id="motivos">
+        <div class="reasons-inner">
+          <div class="reasons-header">
+            <h2 class="reasons-title">Três coisinhas sobre você (por enquanto)…</h2>
+            <p class="reasons-subtitle">
+              Só três coisas porque dá trabalho fazer mais e não caberia nem no maior site do universo.
+            </p>
+          </div>
+
+          <div class="reasons-grid">
+            <!-- Motivo 1 -->
+            <article class="reason-item" data-reason-index="1">
+              <div class="reason-card postit postit-1">
+                <h3 class="reason-heading">1. Você me faz rir de tudo</h3>
+                <p>
+                  Você transforma qualquer momento besta em algo que eu quero guardar pra sempre.
+                  Com você, até os dias mais aleatórios ganham legenda e viram história nossa.
+                </p>
+              </div>
+            </article>
+
+            <!-- Motivo 2 -->
+            <article class="reason-item" data-reason-index="2">
+              <div class="reason-card postit postit-2">
+                <h3 class="reason-heading">2. Seu jeito de cuidar de mim</h3>
+                <p>
+                  Mesmo fingindo que não, você cuida de mim de um jeito que ninguém mais cuida.
+                  É no jeito que você fala, nas pequenas preocupações e até nas bronquinhas carinhosas.
+                </p>
+              </div>
+            </article>
+
+            <!-- Motivo 3 -->
+            <article class="reason-item" data-reason-index="3">
+              <div class="reason-card postit postit-3">
+                <h3 class="reason-heading">3. Você é meu lugar favorito</h3>
+                <p>
+                  Com você eu me sinto em casa, mesmo quando o mundo tá todo bagunçado.
+                  Estar com você é o meu lugar seguro, meu ponto de paz e meu caos preferido ao mesmo tempo.
+                </p>
+              </div>
+            </article>
+
+            <!-- Post-it extra com botão para a próxima fase -->
+            <article class="reason-item" data-reason-index="4">
+              <div class="reason-card postit postit-4">
+                <h3 class="reason-heading">4. Próxima fase…</h3>
+                <p>
+                  Se você chegou até aqui, quer dizer que ainda não cansou de mim.
+                  Então acho que já posso fazer uma perguntinha importante…
+                </p>
+                <a class="postit-button" href="pedido.html">
+                  Clique aqui por sua conta e risco
+                </a>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
+
+

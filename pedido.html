@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pedido oficial 💜</title>
+
+    <!-- Fontes compartilhadas -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Kalam:wght@300;400;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body class="pedido-page">
+    <main class="page-wrapper expanded">
+      <!-- Fundo com brilhinhos dourados discretos -->
+      <div class="sparkle-overlay"></div>
+
+      <!-- Corações subindo no fundo (usará a cor padrão vinho) -->
+      <div class="floating-hearts-layer" aria-hidden="true"></div>
+
+      <!-- Botão de música -->
+      <button
+        class="music-toggle"
+        id="music-toggle"
+        type="button"
+        aria-label="Tocar ou pausar a música"
+      >
+        <span class="music-icon">♪</span>
+        <span class="music-heart">♥</span>
+      </button>
+
+      <audio id="background-music" loop>
+        <source src="minha-musica.mp4" type="video/mp4" />
+      </audio>
+
+      <audio id="click-sound">
+        <source src="click.mp4" type="video/mp4" />
+      </audio>
+
+      <!-- SESSÃO – PEDIDO COM BOTÃO QUE FOGE -->
+      <section class="pedido-section">
+        <div class="pedido-inner">
+          <h1 class="pedido-title">Vitor, você aceita namorar comigo?</h1>
+
+          <p class="pedido-subtitle">
+            Pensa com carinho antes de responder, porque a partir daqui o pacote
+            inclui ainda mais dramas, risadas e muito Vinho te enchendo de amor.
+          </p>
+
+          <div class="pedido-buttons-wrapper" id="pedido-area">
+            <button class="pedido-button yes-button" id="yes-button">
+              Sim 💜
+            </button>
+            <button class="pedido-button no-button" id="no-button">
+              Não 😈
+            </button>
+          </div>
+
+          <p class="pedido-hint">
+            Dica: alguns botões aqui são um pouco covardes e fogem da
+            responsabilidade.
+          </p>
+        </div>
+      </section>
+
+      <!-- CONTRATO DE NAMORO – SOBREPOSIÇÃO FULLSCREEN -->
+      <div class="contrato-overlay" id="contrato-overlay" aria-hidden="true">
+        <div class="contrato-backdrop"></div>
+        <div class="contrato-card">
+          <h2 class="contrato-title">Contrato oficial de namoro</h2>
+          <p class="contrato-intro">
+            Eu, Rayssa (Vinho), declaro que a partir deste clique o Vitor (Leite) está
+            oficialmente incluso no pacote completo de:
+          </p>
+          <ul class="contrato-list">
+            <li>Cláusula 1: Me aturar nos meus surtos e dramas cuidadosamente selecionados.</li>
+            <li>Cláusula 2: Rir comigo das coisas mais idiotas possíveis, mesmo quando não fizer sentido.</li>
+            <li>Cláusula 3: Aceitar que eu vou te mandar mensagem falando de nada e tudo ao mesmo tempo.</li>
+            <li>Cláusula 4: Saber que eu escolhi você como meu lugar favorito no mundo.</li>
+          </ul>
+          <p class="contrato-assinatura">
+            Assinado com muito amor,<br />
+            <span>Vinho &amp; Leite 💜</span>
+          </p>
+          <button class="contrato-close-button" id="contrato-close">
+            Fechar com um sorriso
+          </button>
+        </div>
+      </div>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
+
+

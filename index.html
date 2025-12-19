@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Para o meu Leite 💜</title>
+
+    <!-- Fonte manuscrita romântica (títulos) -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Kalam:wght@300;400;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Arquivo de estilos principal -->
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!--
+      SESSÃO 1 – CARTA ABERTA
+      Esta é a primeira sessão do site: uma carta romântica em estilo vintage,
+      com fundo creme, brilhinhos dourados discretos e uma carta de "papel velho".
+      O botão abaixo da carta terá efeito "liquid glass" sutil.
+    -->
+    <main class="page-wrapper">
+      <!-- Fundo com brilhinhos dourados discretos -->
+      <div class="sparkle-overlay"></div>
+
+      <!-- Corações vinho subindo no fundo -->
+      <div class="floating-hearts-layer" aria-hidden="true"></div>
+
+      <!-- Controle de música – ícone flutuante de coração com nota musical -->
+      <!-- IMPORTANTE: coloque um arquivo "musica.mp3" na mesma pasta deste arquivo para a música funcionar -->
+      <button
+        class="music-toggle"
+        id="music-toggle"
+        type="button"
+        aria-label="Tocar ou pausar a música"
+      >
+        <span class="music-icon">♪</span>
+        <span class="music-heart">♥</span>
+      </button>
+
+      <!-- Elemento de áudio (música instrumental romântica) -->
+      <audio id="background-music" loop>
+        <source src="minha-musica.mp4" type="video/mp4" />
+        Seu navegador não suporta áudio.
+      </audio>
+
+      <!-- Som de clique suave para interações na página -->
+      <!-- Coloque um arquivo "click.mp4" na mesma pasta deste arquivo para ativar o som -->
+      <audio id="click-sound">
+        <source src="click.mp4" type="video/mp4" />
+      </audio>
+
+      <section class="hero-letter" id="inicio">
+        <div class="letter-container">
+          <!-- Cartão estilo carta vintage -->
+          <div class="letter-card">
+            <!-- Título com animação de escrita (feito em script.js) -->
+            <h1 class="letter-title" id="letter-title">
+              Uma coisinha que eu preciso te dizer, Leite…
+            </h1>
+
+            <div class="letter-body">
+              <p>
+                Eu, Rayssa, também conhecida como o seu
+                <span class="heart-word">Vinho</span>
+                particular, oficialmente declaro que você, Vitor (vulgo
+                <span class="heart-word">Leite</span>), é uma das loucuras mais
+                especiais que o universo já colocou no meu caminho.
+              </p>
+              <p>
+                Eu amo o jeito que você me faz rir até nas horas mais nada a
+                ver, amo como você transforma qualquer momento besta em memória
+                boa e amo o fato de que, perto de você, até meus dramas ficam
+                mais leves.
+              </p>
+              <p>
+                Também preciso dizer:
+                <span class="heart-word"
+                  >desculpa por não ser tão perfeita quanto você</span
+                >, mas eu prometo continuar tentando ser a melhor versão de
+                mim, principalmente quando é pra ficar ao seu lado.
+              </p>
+              <p>
+                Essa é só a primeira parte do presente, então vai com calma,
+                respira fundo… e continua rolando, porque ainda tenho mais
+                coisas pra te dizer.
+                <span class="heart-word">♥</span>
+              </p>
+            </div>
+
+            <!-- Botão com efeito liquid glass sutil (interativo mais tarde) -->
+            <div class="letter-actions">
+              <button class="glass-button" id="continue-button">
+                Continuar para a próxima surpresa
+              </button>
+              <!-- Mensagem fofinha que aparece depois do clique -->
+              <p class="continue-message" id="continue-message">
+                <!-- Texto é controlado pelo JavaScript -->
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- Arquivo de scripts principal -->
+    <script src="script.js"></script>
+  </body>
+</html>
+
+
