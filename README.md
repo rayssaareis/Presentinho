@@ -1,61 +1,43 @@
-🎁 Presentinho
+# 🎁 Presentinho
 
-Um site interativo e romântico criado como uma surpresa especial para o meu namorado.
-O projeto combina HTML, CSS e JavaScript puro, com animações suaves, efeitos visuais, sons e uma navegação em formato de “história”, pensada para emocionar e divertir.
+> Um site interativo e romântico criado como uma surpresa especial para o meu namorado.
 
-✨ Visão geral
+Projeto desenvolvido com **HTML, CSS e JavaScript puro**, focado em experiência, emoção e interatividade, sem uso de frameworks.
 
-O site funciona como uma experiência progressiva:
+---
 
-Animação de escrita no título
+## ✨ Visão Geral
 
-Carta interativa com efeito 3D seguindo o mouse
+O **Presentinho** é um site em formato de experiência progressiva, onde cada interação conduz o usuário para a próxima etapa da surpresa.
 
-Sons sutis de clique e música de fundo
+A navegação foi pensada como uma pequena história interativa, combinando animações, efeitos visuais, sons e elementos lúdicos.
 
-Corações e partículas animadas no fundo
+---
 
-Página com motivos especiais
+## 🧠 Tecnologias Utilizadas
 
-Página de pedido interativo (com botão “Sim” que foge 😈)
+- **HTML5**
+- **CSS3**
+  - Animações (`@keyframes`)
+  - Transições e efeitos visuais
+- **JavaScript (Vanilla)**
+  - Manipulação do DOM
+  - Eventos de mouse e clique
+  - `IntersectionObserver`
+  - Controle de áudio
+  - Animações criadas dinamicamente via JavaScript
+- **Mídia**
+  - Áudio ambiente
+  - Som de clique
+  - Vídeos `.mp4`
 
-Celebração final com animações, pétalas, brilhos e música
+---
 
-Tudo foi feito sem frameworks, focando em DOM, CSS animations e JavaScript vanilla.
+## 📁 Estrutura do Projeto
 
-🧠 Tecnologias utilizadas
-
-HTML5
-
-CSS3
-
-Animações (@keyframes)
-
-Transições e efeitos visuais
-
-JavaScript (Vanilla)
-
-Manipulação de DOM
-
-Eventos de mouse e clique
-
-Intersection Observer
-
-Controle de áudio
-
-Animações dinâmicas criadas via JS
-
-Áudio e vídeo
-
-Sons de clique
-
-Música de fundo
-
-Arquivos .mp4 usados na experiência
-
-📁 Estrutura do projeto
+```text
 /
-├── index.html        # Página inicial (carta)
+├── index.html        # Página inicial (carta interativa)
 ├── motivos.html      # Página com os motivos
 ├── pedido.html       # Página do pedido interativo
 ├── final.html        # Página final / encerramento
@@ -64,61 +46,89 @@ Arquivos .mp4 usados na experiência
 ├── click.mp4         # Som de clique
 ├── minha-musica.mp4  # Música de fundo
 
-🚀 Como executar
 
-Não há dependências nem build.
+---
 
-Clone o repositório:
+# 🚀 Como Executar o Projeto
+
+Não há dependências externas ou processo de build.
+
+Opção 1 — Abrir direto no navegador
+
+Abra o arquivo index.html em qualquer navegador moderno.
+
+
+Opção 2 — Servidor local (recomendado)
 
 git clone https://github.com/rayssaareis/Presentinho.git
+cd Presentinho
+
+Em seguida, utilize uma extensão de servidor local (ex: Live Server no VS Code).
 
 
-Abra o arquivo index.html diretamente no navegador
-ou
+---
 
-Use uma extensão de servidor local (ex: Live Server no VS Code)
+# 🎮 Funcionalidades Principais
 
-🎮 Principais funcionalidades
+✍️ Animação de escrita no título
 
-✍️ Animação de escrita no título inicial
-
-🪄 Efeito 3D na carta acompanhando o movimento do mouse
+🪄 Carta com efeito 3D seguindo o movimento do mouse
 
 ✨ Rastro brilhante do cursor
 
 ❤️ Corações animados flutuando no fundo
 
-🎵 Controle de música (play/pause)
+🎵 Controle de música (play / pause)
 
-🔊 Som suave de clique
+🔊 Som suave ao clicar na página
 
-🧠 Intersection Observer para animações ao entrar na tela
+🧠 Animações ativadas por IntersectionObserver
 
-😏 Botão “Sim” que foge e botão “Não” que provoca o usuário
+😈 Botão “Sim” que foge do cursor
 
-🎉 Celebração final com pétalas, taças e brilhos animados
+🙃 Botão “Não” que muda de texto e comportamento
 
-💡 Objetivo do projeto
+🎉 Celebração final com pétalas, brilhos e taças animadas
+
+
+
+---
+
+# 💡 Objetivo do Projeto
 
 Este projeto foi criado com foco em:
 
-Criatividade
+Criatividade e expressão pessoal
 
-Experiência do usuário
-
-Expressão emocional através de código
+Experiência do usuário (UX)
 
 Prática avançada de JavaScript sem frameworks
 
-Exploração de animações e interações visuais
+Animações e interações visuais
 
-Além do valor pessoal, também serve como projeto de portfólio front-end, demonstrando domínio de lógica, eventos e animações.
+Storytelling através de código
 
-⚠️ Observações
 
-Navegadores podem bloquear autoplay de áudio — a música inicia apenas após interação do usuário.
+Além do valor emocional, o projeto também funciona como demonstração de habilidades front-end para portfólio.
 
-O projeto foi pensado para desktop, mas funciona em mobile com pequenas variações de experiência.
+
+---
+
+# ⚠️ Observações Importantes
+
+Navegadores modernos bloqueiam autoplay de áudio, portanto a música inicia apenas após interação do usuário.
+
+O projeto foi pensado principalmente para desktop, mas funciona em dispositivos móveis com pequenas variações.
+
+
+
+---
+
+# 📜 Licença
+
+Projeto de uso pessoal e criativo.
+
+Sinta-se à vontade para se inspirar, mas evite cópia integral para fins comerciais ou de redistribuição.
 
 📜 Licença
 
